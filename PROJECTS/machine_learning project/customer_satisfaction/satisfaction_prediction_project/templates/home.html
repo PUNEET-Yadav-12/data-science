@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Satisfaction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            background-color: #121212;
+            color: #f2f2f2;
+        }
+
+        .navbar {
+            background-color: #1f1f1f;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            color: white;
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+
+        .cust {
+            text-align: center;
+        }
+
+        .pro h1,
+        .pro p {
+            margin: 0;
+        }
+
+        .project-btn {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .description-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #1f1f1f;
+            color: #f2f2f2;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            flex: 1 1 300px;
+        }
+
+        .about-card {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .small-card {
+            flex: 1 1 300px;
+            margin: 10px;
+        }
+
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-card {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .section:not(.visible) {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#project">Project</a>
+        <a href="#description">Description</a>
+        <a href="#about">About</a>
+        <a href="#thanking">Thanking</a>
+    </div>
+
+    <div id="project" class="section">
+        <div class="cust">
+            <h1>Customer Satisfaction</h1>
+            <p>by Puneet Yadav :)</p>
+            <a href="/project" class="project-btn">Project Explore</a>
+        </div>
+    </div>
+
+    <div id="description" class="section">
+        <div class="description-container">
+            <div class="card">
+                <h1>I have explored the dataset and, utilizing logistic regression, developed the "Customer Satisfaction" project.</h1>
+                <p>This project aims to predict customer satisfaction based on various factors within the dataset.</p>
+            </div>
+            <div class="card">
+                <ul>
+                    <strong>Tools and Libraries Used:</strong>
+                    <li>NumPy: For numerical operations and handling array-based computations.</li>
+                    <li>Pandas: To load, manipulate, and analyze the dataset efficiently.</li>
+                    <li>Matplotlib: For creating static, interactive, and animated visualizations to understand the data better.</li>
+                    <li>Seaborn: For making attractive and informative statistical graphics.</li>
+                    <li>OS: For handling file operations and directory management.</li>
+                    <li>Joblib: For saving and loading the machine learning model and other large data structures efficiently.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <p>Customer satisfaction analysis uses data science and machine learning to improve customer experiences. By collecting and preprocessing feedback, exploring data trends, and applying machine learning models, businesses can gain valuable insights into customer sentiment. This analysis helps in predicting satisfaction levels and identifying key factors influencing customer experiences, enabling more effective strategies to enhance overall satisfaction.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="thanking" class="section">
+        <h1>Thank you!!</h1>
+        <p>for giving your time to us...<br>We will meet again!!</p>
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #000000; /* Dark background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #ffffff; /* Light text */
+        }
+        .result-container {
+            background: #000000; /* Darker container */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .result-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .result-container p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 25px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Insurance Cost Prediction</h1>
+        <p class="lead">Your predicted insurance cost is: <strong>${{ output }}</strong></p>
+        
+        <h5>Your Input Data:</h5>
+        <ul class="list-unstyled">
+            <li><strong>Age:</strong> {{ age }}</li>
+            <li><strong>Gender:</strong> {{ 'Male' if gender == 1 else 'Female' }}</li>
+            <li><strong>BMI:</strong> {{ bmi }}</li>
+            <li><strong>Number of Children:</strong> {{ children }}</li>
+            <li><strong>Smoker:</strong> {{ 'Yes' if smoker == 1 else 'No' }}</li>
+            <li><strong>Health Score:</strong> {{ health }}</li>
+            <li><strong>Region:</strong> {{ region }}</li>
+        </ul>
+
+        <a href="{{ url_for('project') }}" class="btn btn-custom">Predict Again</a>
+    </div>
+</body>
+</html>
