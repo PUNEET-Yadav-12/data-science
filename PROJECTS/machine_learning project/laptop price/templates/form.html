@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Laptop Price</title>
+    
+    <style>
+        body {
+            background-color: #000000;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #000000;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+        .form-group label {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .form-control {
+            background-color: #fafafa; /* Black background */
+            color: rgb(0, 0, 0); /* White text */
+            border: 1px solid #ffffff; /* White border */
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .form-control::placeholder {
+            color: #ffffff; /* White placeholder text */
+            opacity: 0.7; /* Slightly transparent for placeholder */
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Laptop Specifications</h1>
+        <form action="{{ url_for('predict') }}" method="POST">
+            <div class="form-group">
+                <label for="screenSize">Screen Size (inches):</label>
+                <input type="text" class="form-control" id="screenSize" name="screenSize" placeholder="Enter screen size" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ram">RAM (GB):</label>
+                <input type="text" class="form-control" id="ram" name="ram" placeholder="Enter RAM size" required>
+            </div>
+
+            <div class="form-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="text" class="form-control" id="weight" name="weight" placeholder="Enter weight" required>
+            </div>
+
+            <div class="form-group">
+                <label for="processorSpeed">Processor Speed (GHz):</label>
+                <input type="text" class="form-control" id="processorSpeed" name="processorSpeed" placeholder="Enter processor speed" required>
+            </div>
+
+            <div class="form-group">
+                <label for="width">Width (mm):</label>
+                <input type="text" class="form-control" id="width" name="width" placeholder="Enter width" required>
+            </div>
+
+            <div class="form-group">
+                <label for="height">Height (mm):</label>
+                <input type="text" class="form-control" id="height" name="height" placeholder="Enter height" required>
+            </div>
+
+            <div class="form-group">
+                <label for="storageCapacity">Storage Capacity (GB):</label>
+                <input type="text" class="form-control" id="storageCapacity" name="storageCapacity" placeholder="Enter storage capacity" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gpuCode">GPU Code:</label>
+                <input type="text" class="form-control" id="gpuCode" name="gpuCode" placeholder="Enter GPU code" required>
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company:</label>
+                <select id="company" name="company" class="form-control" required>
+                    <option value="Acer">Acer</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Asus">Asus</option>
+                    <option value="Chuwi">Chuwi</option>
+                    <option value="Dell">Dell</option>
+                    <option value="Fujitsu">Fujitsu</option>
+                    <option value="Google">Google</option>
+                    <option value="HP">HP</option>
+                    <option value="Huawei">Huawei</option>
+                    <option value="LG">LG</option>
+                    <option value="Lenovo">Lenovo</option>
+                    <option value="MSI">MSI</option>
+                    <option value="Mediacom">Mediacom</option>
+                    <option value="Microsoft">Microsoft</option>
+                    <option value="Razer">Razer</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Toshiba">Toshiba</option>
+                    <option value="Vero">Vero</option>
+                    <option value="Xiaomi">Xiaomi</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <select id="type" name="type" class="form-control" required>
+                    <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Netbook">Netbook</option>
+                    <option value="Notebook">Notebook</option>
+                    <option value="Ultrabook">Ultrabook</option>
+                    <option value="Workstation">Workstation</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="os">Operating System:</label>
+                <select id="os" name="os" class="form-control" required>
+                    <option value="Android">Android</option>
+                    <option value="Chrome OS">Chrome OS</option>
+                    <option value="Linux">Linux</option>
+                    <option value="Mac OS X">Mac OS X</option>
+                    <option value="No OS">No OS</option>
+                    <option value="Windows 10">Windows 10</option>
+                    <option value="Windows 10 S">Windows 10 S</option>
+                    <option value="Windows 7">Windows 7</option>
+                    <option value="macOS">macOS</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="generation">Generation:</label>
+                <select id="generation" name="generation" class="form-control" required>
+                    <option value="Generation 1">Generation 1</option>
+                    <option value="Generation 3">Generation 3</option>
+                    <option value="Generation 5">Generation 5</option>
+                    <option value="Generation 7">Generation 7</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Predict</button>
+        </form>
+        
+        <div class="footer">
+            <p></p>
+        </div>
+    </div>
+</body>
+</html>
