@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parameter Collection Form</title>
+    <link rel="stylesheet" href="/static/styles2.css">
+</head>
+<body>
+    <header>
+        <!-- Header content (logo removed as requested) -->
+    </header>
+    <div class="form-wrapper">
+        <div class="form-container">
+            <h2>Enter Soil Parameters</h2>
+            <form action="{{ url_for('submit') }}" method="post">
+                <div class="form-group">
+                    <label for="n">Nitrogen:</label>
+                    <input type="text" id="n" name="n" required>
+                </div>
+                <div class="form-group">
+                    <label for="p">Phosphorus:</label>
+                    <input type="text" id="p" name="p" required>
+                </div>
+                <div class="form-group">
+                    <label for="k">Potassium:</label>
+                    <input type="text" id="k" name="k" required>
+                </div>
+                <div class="form-group">
+                    <label for="temperature">Temperature:</label>
+                    <input type="text" id="temperature" name="temperature" required>
+                </div>
+                <div class="form-group">
+                    <label for="humidity">Humidity:</label>
+                    <input type="text" id="humidity" name="humidity" required>
+                </div>
+                <div class="form-group">
+                    <label for="ph">pH:</label>
+                    <input type="text" id="ph" name="ph" required>
+                </div>
+                <div class="form-group">
+                    <label for="rainfall">Rainfall:</label>
+                    <input type="text" id="rainfall" name="rainfall" required>
+                </div>
+                <div class="form-group buttons">
+                    <a href="/" class="btn-primary">Back</a>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
