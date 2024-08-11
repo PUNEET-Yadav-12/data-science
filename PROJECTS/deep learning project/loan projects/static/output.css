@@ -1,0 +1,114 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('/static/background.jpg'); /* Add your background image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    margin: 0;
+    height: 100vh; /* Full height of viewport */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Set position to relative for absolute positioning of image */
+    width: 90%;
+    max-width: 400px; /* Limit width for smaller screens */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    background-color: #2196F3; /* Blue */
+    color: white;
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    width: 100%; /* Full width */
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+h2 {
+    color: #333;
+}
+
+.result-container {
+    display: flex; /* Use flexbox to position the content vertically */
+    flex-direction: column; /* Change to column layout */
+    align-items: flex-start; /* Align items to the left */
+    margin-top: 20px;
+    width: 100%; /* Full width */
+}
+
+.result-message {
+    margin: 0; /* No margin */
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 1.5;
+    background-color: #f9f9f9; /* Light background for messages */
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Allow scrolling within the message if needed */
+    max-height: 50vh; /* Limit the height to half of the viewport height */
+}
+
+.result-message.approved {
+    background-color: rgba(76, 175, 80, 0.1); /* Light background */
+    color: #15a505; /* Neutral color */
+    border: 1px solid #ccc; /* Neutral border */
+}
+
+.result-message.rejected {
+    background-color: rgba(244, 67, 54, 0.1); /* Light background */
+    color: #9e0000; /* Neutral color */
+    border: 1px solid #ccc; /* Neutral border */
+}
+
+.button-container {
+    margin-top: 20px;
+    align-self: flex-end; /* Align button to the right */
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2196F3; /* Blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1976D2; /* Darker Blue */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .main-container {
+        width: 95%; /* Adjust width for smaller screens */
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .result-message {
+        font-size: 16px;
+    }
+}

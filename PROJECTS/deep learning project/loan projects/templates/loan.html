@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application Portal</title>
+    <link rel="stylesheet" href="/static/form.css">
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <h1>Loan Application Portal</h1>
+            <p>Get your loan approved quickly!</p>
+        </header>
+        
+        <div class="form-container">
+            <form id="loan-form" method="post" action="/predict">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="no_of_dependents">Dependents</label>
+                        <input type="number" id="no_of_dependents" name="no_of_dependents" min="0" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="income_annum">Annual Income (₹)</label>
+                        <input type="number" id="income_annum" name="income_annum" min="0" step="any" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="loan_amount">Loan Amount (₹)</label>
+                        <input type="number" id="loan_amount" name="loan_amount" min="0" step="any" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="loan_term">Loan Term (Months)</label>
+                        <input type="number" id="loan_term" name="loan_term" min="0" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="cibil_score">CIBIL Score</label>
+                        <input type="number" id="cibil_score" name="cibil_score" min="300" max="900" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="residential_assets_value">Residential Assets (₹)</label>
+                        <input type="number" id="residential_assets_value" name="residential_assets_value" min="0" step="any" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="commercial_assets_value">Commercial Assets (₹)</label>
+                        <input type="number" id="commercial_assets_value" name="commercial_assets_value" min="0" step="any" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="luxury_assets_value">Luxury Assets (₹)</label>
+                        <input type="number" id="luxury_assets_value" name="luxury_assets_value" min="0" step="any" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="bank_asset_value">Bank Assets (₹)</label>
+                        <input type="number" id="bank_asset_value" name="bank_asset_value" min="0" step="any" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="education_NotGraduate">Not a Graduate?</label>
+                        <select id="education_NotGraduate" name="education_NotGraduate" required>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="self_employed_Yes">Self-Employed?</label>
+                        <select id="self_employed_Yes" name="self_employed_Yes" required>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <input type="submit" value="Submit Application">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
